@@ -14,9 +14,9 @@ function divide(a, b) {
   return a / b;
 }
 
-let operatorSymbol = "+";
-let num1 = 6;
-let num2 = 9;
+let operatorSymbol = "";
+let num1 = 0;
+let num2 = 0;
 
 function operate(operatorSymbol, num1, num2) {
   switch (operatorSymbol) {
@@ -34,7 +34,6 @@ function operate(operatorSymbol, num1, num2) {
       break;
   }
 }
-// alert(operate(operatorSymbol, num1, num2));
 
 const calculatorDisplay = document.querySelector("#calculatorDisplay");
 const buttons = document.querySelectorAll("button");
