@@ -23,6 +23,15 @@ function operate(operatorSymbol, num1, num2) {
     case "+":
       return add(num1, num2);
       break;
+    case "-":
+      return subtract(num1, num2);
+      break;
+    case "x":
+      return multiply(num1, num2);
+      break;
+    case "/":
+      return divide(num1, num2);
+      break;
   }
 }
 // alert(operate(operatorSymbol, num1, num2));
