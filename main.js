@@ -17,6 +17,7 @@ function divide(a, b) {
 let operatorSymbol = "";
 let num1 = 0;
 let num2 = 0;
+let theFlag = false;
 
 function operate(operatorSymbol, num1, num2) {
   switch (operatorSymbol) {
