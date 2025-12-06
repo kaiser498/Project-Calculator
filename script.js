@@ -6,6 +6,7 @@ let divide = (a, b) => (b === 0 ? "Undefined" : a / b);
 let firstInput = "";
 let operator = "";
 let currentInput = "0";
+let theFlag = false;
 
 function operate(op, n1, n2) {
   n1 = parseFloat(n1);
@@ -15,13 +16,13 @@ function operate(op, n1, n2) {
     case "+":
       return add(n1, n2);
       break;
-    case "+":
+    case "-":
       return subtract(n1, n2);
       break;
-    case "+":
+    case "*":
       return multiply(n1, n2);
       break;
-    case "+":
+    case "÷":
       return divide(n1, n2);
       break;
     default:
@@ -34,3 +35,40 @@ const numbersBtn = document.querySelectorAll(".number-button");
 const operatorsBtn = document.querySelectorAll(".operator-button");
 const allClearBtn = document.querySelector("#all-clear");
 const clearEntryBtn = document.querySelector("#clear-entry");
+
+const updateDisplay = () => {
+  calculatorDisplay.value = currentInput;
+};
+
+numbersBtn.forEach((numberBtn) => {
+  let numberValue = numberBtn.textContent;
+  numberBtn.addEventListener("click", () => {
+    if (theFlag) {
+      currentInput = numberValue;
+      theFlag = false;
+    } else if (currentInput === "0") {
+      currentInput = numberValue;
+    } else {
+      currentInput += numberValue;
+    }
+    updateDisplay();
+  });
+});
+
+operatorsBtn.forEach((operatorBtn) => {
+  let operatorValue = operatorBtn.textContent;
+  operatorBtn.addEventListener("click", () => {
+    if (firstInput === "" && currentInput !== "") {
+      firstInput = currentInput;
+      operator = operatorValue;
+      theFlag = true;
+    } else if (firstInput !== "" && currentInput !== "0") {
+      const result = operate(operator, firstInput, currentInput);
+      currentInput = result.toString();
+      firstInput = result;
+      operator = operatorValue;
+      theFlag = true;
+      updateDisplay();
+    }
+  });
+});
