@@ -28,3 +28,9 @@ function operate(op, n1, n2) {
       return;
   }
 }
+
+const calculatorDisplay = document.querySelector("#calculator-display");
+const numbersBtn = document.querySelectorAll(".number-button");
+const operatorsBtn = document.querySelectorAll(".operator-button");
+const allClearBtn = document.querySelector("#all-clear");
+const clearEntryBtn = document.querySelector("#clear-entry");
