@@ -85,3 +85,11 @@ equalBtn.addEventListener("click", () => {
     updateDisplay();
   }
 });
+
+allClearBtn.addEventListener("click", () => {
+  firstInput = "";
+  operator = "";
+  currentInput = "0";
+  theFlag = false;
+  updateDisplay();
+});
