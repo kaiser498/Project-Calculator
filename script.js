@@ -38,12 +38,13 @@ const clearEntryBtn = document.querySelector("#clear-entry");
 const equalBtn = document.querySelector("#equal");
 
 const updateDisplay = () => {
-  calculatorDisplay.value = currentInput;
+  calculatorDisplay.textContent = currentInput;
 };
 
 numbersBtn.forEach((numberBtn) => {
   let numberValue = numberBtn.textContent;
   numberBtn.addEventListener("click", () => {
+    if (numberValue === "." && currentInput.includes(".")) return;
     if (theFlag) {
       currentInput = numberValue;
       theFlag = false;
