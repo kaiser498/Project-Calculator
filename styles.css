@@ -1,0 +1,126 @@
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "DM Serif Text";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/dm-serif-text-v13-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Serif Text", Georgia, "Times New Roman", Times, serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  background-color: #011e32;
+  color: white;
+}
+
+header,
+footer {
+  flex-shrink: 0;
+  background-color: #626499;
+  width: 100%;
+  text-align: center;
+  padding: 0.3rem;
+}
+
+#calculator {
+  background-color: #073b5e;
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+
+#calculator-display {
+  background-color: #0b5485;
+  border-radius: 10px;
+  width: 326px;
+  min-height: 3rem;
+  text-align: right;
+  padding: 0.3rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  overflow-wrap: break-word;
+}
+
+.button {
+  height: 50px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  margin: 0.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.1s ease;
+  background-color: #736b46;
+}
+
+.button:hover {
+  background-color: #82784f;
+}
+
+.button:active {
+  background-color: #9e9361;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.operator-button {
+  background-color: #415867;
+  color: white;
+}
+
+.operator-button:hover {
+  background-color: #4d6984;
+}
+
+.operator-button:active {
+  background-color: #5e81a1;
+}
+
+#all-clear,
+#clear-entry {
+  background-color: #6e5541;
+  color: white;
+  width: 40%;
+  border-radius: 10px;
+  padding: 0.9rem;
+  margin-bottom: 0.5rem;
+  margin-top: -0.4rem;
+}
+
+#all-clear:hover,
+#clear-entry:hover {
+  background-color: #a17c5e;
+}
+
+#all-clear:active,
+#clear-entry:active {
+  background-color: #b2947b;
+}
+
+#equal {
+  background-color: #6d71c7;
+  color: white;
+}
+
+#equal:hover {
+  background-color: #898cd2;
+}
+
+#equal:active {
+  background-color: #cbcdeb;
+}
