@@ -93,3 +93,8 @@ allClearBtn.addEventListener("click", () => {
   theFlag = false;
   updateDisplay();
 });
+
+clearEntryBtn.addEventListener("click", () => {
+  currentInput = currentInput.slice(0, -1);
+  updateDisplay();
+});
