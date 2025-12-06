@@ -35,6 +35,7 @@ const numbersBtn = document.querySelectorAll(".number-button");
 const operatorsBtn = document.querySelectorAll(".operator-button");
 const allClearBtn = document.querySelector("#all-clear");
 const clearEntryBtn = document.querySelector("#clear-entry");
+const equalBtn = document.querySelector("#equal");
 
 const updateDisplay = () => {
   calculatorDisplay.value = currentInput;
@@ -71,4 +72,16 @@ operatorsBtn.forEach((operatorBtn) => {
       updateDisplay();
     }
   });
+});
+
+equalBtn.addEventListener("click", () => {
+  let equalBtnValue = equalBtn.textContent;
+  if (firstInput !== "" && operator !== "" && currentInput !== "") {
+    const result = operate(operator, firstInput, currentInput);
+    currentInput = result.toString();
+    firstInput = "";
+    operator = "";
+    theFlag = true;
+    updateDisplay();
+  }
 });
