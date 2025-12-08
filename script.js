@@ -119,7 +119,7 @@ let clearEntry = () => {
   updateDisplay();
 };
 
-document.addEventListener("keyup", keyPress);
+document.addEventListener("keydown", keyPress);
 
 function keyPress(event) {
   const key = event.key;
