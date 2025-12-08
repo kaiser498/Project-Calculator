@@ -44,39 +44,50 @@ const updateDisplay = () => {
 numbersBtn.forEach((numberBtn) => {
   let numberValue = numberBtn.textContent;
   numberBtn.addEventListener("click", () => {
-    if (numberValue === "." && currentInput.includes(".")) return;
-    if (theFlag) {
-      currentInput = numberValue;
-      theFlag = false;
-    } else if (currentInput === "0") {
-      currentInput = numberValue;
-    } else {
-      currentInput += numberValue;
-    }
-    updateDisplay();
+    addNumber(numberValue);
   });
 });
+
+let addNumber = (numberValue) => {
+  if (numberValue === "." && currentInput.includes(".")) return;
+  if (theFlag) {
+    currentInput = numberValue;
+    theFlag = false;
+  } else if (currentInput === "0") {
+    currentInput = numberValue;
+  } else {
+    currentInput += numberValue;
+  }
+  updateDisplay();
+};
 
 operatorsBtn.forEach((operatorBtn) => {
   let operatorValue = operatorBtn.textContent;
   operatorBtn.addEventListener("click", () => {
-    if (firstInput === "" && currentInput !== "") {
-      firstInput = currentInput;
-      operator = operatorValue;
-      theFlag = true;
-    } else if (firstInput !== "" && currentInput !== "0") {
-      const result = operate(operator, firstInput, currentInput);
-      currentInput = result.toString();
-      firstInput = result;
-      operator = operatorValue;
-      theFlag = true;
-      updateDisplay();
-    }
+    addOperator(operatorValue);
   });
 });
 
+let addOperator = (operatorValue) => {
+  if (firstInput === "" && currentInput !== "") {
+    firstInput = currentInput;
+    operator = operatorValue;
+    theFlag = true;
+  } else if (firstInput !== "" && currentInput !== "0") {
+    const result = operate(operator, firstInput, currentInput);
+    currentInput = result.toString();
+    firstInput = result;
+    operator = operatorValue;
+    theFlag = true;
+    updateDisplay();
+  }
+};
+
 equalBtn.addEventListener("click", () => {
-  let equalBtnValue = equalBtn.textContent;
+  equal();
+});
+
+let equal = () => {
   if (firstInput !== "" && operator !== "" && currentInput !== "") {
     const result = operate(operator, firstInput, currentInput);
     currentInput = result.toString();
@@ -85,7 +96,7 @@ equalBtn.addEventListener("click", () => {
     theFlag = true;
     updateDisplay();
   }
-});
+};
 
 allClearBtn.addEventListener("click", () => {
   firstInput = "";
@@ -96,6 +107,10 @@ allClearBtn.addEventListener("click", () => {
 });
 
 clearEntryBtn.addEventListener("click", () => {
+  clearEntry();
+});
+
+let clearEntry = () => {
   currentInput = currentInput.slice(0, -1);
   updateDisplay();
-});
+};
