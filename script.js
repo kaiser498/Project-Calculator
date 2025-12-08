@@ -38,7 +38,7 @@ const clearEntryBtn = document.querySelector("#clear-entry");
 const equalBtn = document.querySelector("#equal");
 
 let updateDisplay = () => {
-  calculatorDisplay.value = currentInput;
+  calculatorDisplay.textContent = currentInput;
 };
 
 numbersBtn.forEach((numberBtn) => {
@@ -119,7 +119,7 @@ let clearEntry = () => {
   updateDisplay();
 };
 
-calculatorDisplay.addEventListener("keyup", keyPress);
+document.addEventListener("keyup", keyPress);
 
 function keyPress(event) {
   const key = event.key;
