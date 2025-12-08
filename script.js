@@ -38,7 +38,7 @@ const clearEntryBtn = document.querySelector("#clear-entry");
 const equalBtn = document.querySelector("#equal");
 
 const updateDisplay = () => {
-  calculatorDisplay.textContent = currentInput;
+  calculatorDisplay.value = currentInput;
 };
 
 numbersBtn.forEach((numberBtn) => {
