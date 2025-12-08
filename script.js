@@ -8,7 +8,7 @@ let operator = "";
 let currentInput = "0";
 let theFlag = false;
 
-function operate(op, n1, n2) {
+let operate = (op, n1, n2) => {
   n1 = parseFloat(n1);
   n2 = parseFloat(n2);
 
@@ -28,7 +28,7 @@ function operate(op, n1, n2) {
     default:
       return;
   }
-}
+};
 
 const calculatorDisplay = document.querySelector("#calculator-display");
 const numbersBtn = document.querySelectorAll(".number-button");
@@ -37,7 +37,7 @@ const allClearBtn = document.querySelector("#all-clear");
 const clearEntryBtn = document.querySelector("#clear-entry");
 const equalBtn = document.querySelector("#equal");
 
-const updateDisplay = () => {
+let updateDisplay = () => {
   calculatorDisplay.value = currentInput;
 };
 
@@ -99,12 +99,16 @@ let equal = () => {
 };
 
 allClearBtn.addEventListener("click", () => {
+  allClear();
+});
+
+let allClear = () => {
   firstInput = "";
   operator = "";
   currentInput = "0";
   theFlag = false;
   updateDisplay();
-});
+};
 
 clearEntryBtn.addEventListener("click", () => {
   clearEntry();
@@ -114,3 +118,43 @@ let clearEntry = () => {
   currentInput = currentInput.slice(0, -1);
   updateDisplay();
 };
+
+calculatorDisplay.addEventListener("keyup", keyPress);
+
+function keyPress(event) {
+  const key = event.key;
+  event.preventDefault();
+  switch (key) {
+    case "0":
+    case "1":
+    case "2":
+    case "3":
+    case "4":
+    case "5":
+    case "6":
+    case "7":
+    case "8":
+    case "9":
+    case ".":
+      addNumber(key);
+      break;
+
+    case "/":
+    case "*":
+    case "-":
+    case "+":
+      addOperator(key);
+      break;
+    case "Enter":
+      equal();
+      break;
+    case "Escape":
+      allClear();
+      break;
+    case "Backspace":
+      clearEntry();
+      break;
+    default:
+      return;
+  }
+}
