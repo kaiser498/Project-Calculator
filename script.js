@@ -140,20 +140,26 @@ function keyPress(event) {
       break;
 
     case "/":
+      addOperator("÷");
+      break;
     case "*":
     case "-":
     case "+":
       addOperator(key);
       break;
+
     case "Enter":
       equal();
       break;
+
     case "Escape":
       allClear();
       break;
+
     case "Backspace":
       clearEntry();
       break;
+
     default:
       return;
   }
